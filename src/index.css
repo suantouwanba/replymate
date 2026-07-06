@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ===== ReplyMate 自定义主题色 ===== */
+@theme {
+  /* 主色调 — 深蓝 */
+  --color-accent-light: #E6EEF7;
+  --color-accent: #B3CCE8;
+  --color-accent-deep: #1660AB;
+
+  /* 保留旧变量名兼容（值已更新为新配色） */
+  --color-orange-light: #E6EEF7;
+  --color-orange: #B3CCE8;
+  --color-orange-deep: #1660AB;
+
+  /* 淡蓝（卡片点缀） */
+  --color-blue-light: #E6EEF7;
+  --color-blue: #B3CCE8;
+  --color-blue-deep: #1660AB;
+
+  /* 淡粉（温暖版卡片） */
+  --color-pink-light: #FDE8EC;
+  --color-pink: #FAD1D8;
+
+  /* 基础色 */
+  --color-bg: #FFFFFF;
+  --color-ink: #1A1A1A;
+  --color-ink-secondary: #6B6B6B;
+  --color-border: #E5E5E5;
+}
+
+/* ===== 全局样式 ===== */
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 卡片翻转动画 ===== */
+.card-flip-enter {
+  animation: flipIn 0.3s ease-out forwards;
+  transform-origin: top center;
+}
+
+@keyframes flipIn {
+  0% { opacity: 0; transform: rotateX(-90deg); max-height: 0; }
+  100% { opacity: 1; transform: rotateX(0deg); max-height: 300px; }
+}
+
+/* ===== 卡片堆叠切换动画 ===== */
+.card-fade-out {
+  animation: cardFadeOut 0.35s ease-in forwards;
+}
+
+@keyframes cardFadeOut {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(12px) scale(0.97); }
+}
+
+/* ===== 结果区滑入动画 ===== */
+.result-slide-in {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 复制成功反馈 ===== */
+.copy-flash {
+  animation: copyFlash 0.6s ease-out;
+}
+
+@keyframes copyFlash {
+  0% { background-color: rgba(22, 96, 171, 0.2); }
+  100% { background-color: transparent; }
+}
+
+/* ===== 玻璃质感卡片 ===== */
+.glass-card {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
